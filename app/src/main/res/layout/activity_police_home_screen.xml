@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".police.PoliceHomeScreen">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar"
+            android:visibility="invisible">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="15dp"
+                android:text="You are not allocated to any sector"
+                android:textSize="50dp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar"
+            android:orientation="vertical"
+            android:visibility="invisible">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_marginBottom="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="2dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:padding="10dp"
+                        android:text="Current Duty"
+                        android:textAlignment="center"
+                        android:textColor="#E91E63"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        tools:ignore="RtlCompat" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#000" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:paddingLeft="5dp"
+                        android:text="Allocated Sector:"
+                        android:textAlignment="textStart"
+                        android:textColor="#3F51B5"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        tools:ignore="RtlCompat" />
+
+
+                    <TextView
+                        android:id="@+id/sectorName"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:paddingLeft="15dp"
+                        android:text="Sector Name"
+                        android:textAlignment="textStart"
+                        android:textColor="#3D3D3E"
+                        android:textSize="22sp"
+                        tools:ignore="RtlCompat" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:paddingLeft="5dp"
+                        android:text="Role At Sector:"
+                        android:textAlignment="textStart"
+                        android:textColor="#3F51B5"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        tools:ignore="RtlCompat" />
+
+                    <TextView
+                        android:id="@+id/roleName"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:paddingLeft="15dp"
+                        android:text="Role Name"
+                        android:textAlignment="textStart"
+                        android:textColor="#3D3D3E"
+                        android:textSize="22sp"
+                        tools:ignore="RtlCompat" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:onClick="onTakeAttendance"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="125dp"
+                            android:layout_height="125dp"
+                            android:layout_margin="15dp"
+                            android:background="@drawable/circleblue"
+                            android:padding="10dp"
+                            android:src="@drawable/policeman" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:background="#000" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:padding="10dp"
+                            android:text="Take Attendance"
+                            android:textAlignment="center"
+                            android:textColor="#000"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlCompat" />
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:onClick="onSelfAttendance"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="125dp"
+                            android:layout_height="125dp"
+                            android:layout_margin="15dp"
+                            android:background="@drawable/circleblue"
+                            android:padding="15dp"
+                            android:src="@drawable/atten" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:background="#000" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:padding="10dp"
+                            android:text="Self Attendance"
+                            android:textAlignment="center"
+                            android:textColor="#000"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlCompat" />
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:onClick="onCreateFir"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="125dp"
+                            android:layout_height="125dp"
+                            android:layout_margin="15dp"
+                            android:background="@drawable/circleblue"
+                            android:padding="15dp"
+                            android:src="@drawable/fir" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:background="#000" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:padding="10dp"
+                            android:text="File Fir"
+                            android:textAlignment="center"
+                            android:textColor="#000"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlCompat" />
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:onClick="onWantedDatabase"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="125dp"
+                            android:layout_height="125dp"
+                            android:layout_margin="15dp"
+                            android:background="@drawable/circleblue"
+                            android:padding="20dp"
+                            android:src="@drawable/wanted"
+                            />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:background="#000" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:padding="10dp"
+                            android:text="Wanted Database"
+                            android:textAlignment="center"
+                            android:textColor="#000"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            tools:ignore="RtlCompat" />
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_marginBottom="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:onClick="onSendCrimeMap"
+                app:cardCornerRadius="2dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="125dp"
+                        android:layout_height="125dp"
+                        android:layout_margin="15dp"
+                        android:background="@drawable/circleblue"
+                        android:padding="15dp"
+                        android:src="@drawable/location" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="#000" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:padding="10dp"
+                        android:text="Crime Map"
+                        android:textAlignment="center"
+                        android:textColor="#000"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        tools:ignore="RtlCompat" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</ScrollView>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".police.AdminCreateSector">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/enterSectorName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+
+            android:autofillHints=""
+            android:background="@drawable/edit_text_background"
+            android:digits="0123456789()qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM "
+            android:hint="Enter sector name here"
+            android:iconifiedByDefault="false"
+            android:inputType="textCapWords"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textColor="#000" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/latitude11"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="15dp"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"
+                android:background="@drawable/edit_text_background"
+                android:hint="Latitude"
+                android:padding="10dp" />
+
+            <EditText
+                android:id="@+id/longitude11"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="15dp"
+                android:layout_weight="1"
+                android:inputType="numberDecimal"
+                android:background="@drawable/edit_text_background"
+                android:hint="Longitude"
+                android:padding="10dp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/addSectorBtn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:onClick="addSectorBtn"
+            android:text="Add"
+            android:textAllCaps="false"
+            android:textColor="#FFF"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="#000" />
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/file"
+        android:title="FILE NEW COMPLAINT"/>
+    <item
+        android:id="@+id/addrecords"
+        android:title="ADD REOCORDS"/>
+
+    <item
+        android:id="@+id/criminalrecords"
+        android:title="CRIMINAL RECORD"/>
+
+    <item
+        android:id="@+id/logout"
+        android:title="Logout"/>
+
+</menu>

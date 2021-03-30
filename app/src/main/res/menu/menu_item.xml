@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/fir"
+        android:title="FIR"/>
+    <item
+        android:id="@+id/noc"
+        android:title="Request NOC"/>
+    <item
+        android:id="@+id/crimeMap"
+        android:title="Crime Map"/>
+    <item
+        android:id="@+id/Cid"
+        android:title="Citizen Identity"/>
+    <item
+        android:id="@+id/wanted"
+        android:title="Wanted List"/>
+    <item
+        android:id="@+id/emergency"
+        android:title="Emergency"/>
+    <item
+        android:id="@+id/logout"
+        android:title="Logout"/>
+
+</menu>
