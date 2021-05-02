@@ -43,28 +43,32 @@ public class AdminHeadAllocate extends AppCompatActivity {
     String designation;
     ArrayAdapter<String> adapter;
     ArrayList<String> spinnerDataList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_head_allocate);
 
+        reference = FirebaseDatabase.getInstance().getReference("credentials").child("police");
+        reference2 = FirebaseDatabase.getInstance().getReference("duty");
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Admin Head Allocate");
         setSupportActionBar(toolbar);
-
-        reference = FirebaseDatabase.getInstance().getReference("credentials").child("police");
-        reference2 = FirebaseDatabase.getInstance().getReference("duty");
-        searchOfficer = findViewById(R.id.searchViewOfficer);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(AdminHeadAllocate.this));
         recyclerView.setHasFixedSize(true);
+
+        searchOfficer = findViewById(R.id.searchViewOfficer);
+
         spinner = findViewById(R.id.spinner_designation_name);
         arrayListHistory = new ArrayList<PoliceRegestrationUpload>();
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         spinnerDataList = new ArrayList<>();
-        spinnerDataList.add(0,"DSP");
+        spinnerDataList.add(0, "DSP");
         spinnerDataList.add("PI");
         spinnerDataList.add("Constable");
 
@@ -118,14 +122,14 @@ public class AdminHeadAllocate extends AppCompatActivity {
             protected void onBindViewHolder(@NonNull final FireViewHoldOfficerList holder, int position, @NonNull final PoliceRegestrationUpload model) {
                 String tempDesignation = model.getDesignation();
 
-                if(tempDesignation.equals(designation)){
+                if (tempDesignation.equals(designation)) {
                     holder.itemView.setVisibility(View.VISIBLE);
 
-                    reference2.child(model.getUid()).addValueEventListener(new ValueEventListener() {
+                    reference2.child(model.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if(snapshot.exists()){
-                                holder.Name.setText(model.getFirstName()+" "+model.getLastName());
+                            if (snapshot.exists()) {
+                                holder.Name.setText(model.getFirstName() + " " + model.getLastName());
                                 holder.Designation.setText(model.getDesignation());
 
                                 holder.itemView.setBackground(getResources().getDrawable(R.drawable.button3));
@@ -135,9 +139,8 @@ public class AdminHeadAllocate extends AppCompatActivity {
                                         Toast.makeText(AdminHeadAllocate.this, "This officer is already allocated", Toast.LENGTH_SHORT).show();
                                     }
                                 });
-                            }
-                            else {
-                                holder.Name.setText(model.getFirstName()+" "+model.getLastName());
+                            } else {
+                                holder.Name.setText(model.getFirstName() + " " + model.getLastName());
                                 holder.Designation.setText(model.getDesignation());
                                 holder.itemView.setBackground(getResources().getDrawable(R.drawable.button2));
 
@@ -173,4 +176,15 @@ public class AdminHeadAllocate extends AppCompatActivity {
         recyclerView.setAdapter(adapterHistory);
     }
 
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(AdminHeadAllocate.this, AdminHomeScreen.class));
+        finish();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 }

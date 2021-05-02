@@ -89,8 +89,8 @@
                     android:layout_margin="15dp"
                     android:layout_width="125dp"
                     android:layout_height="125dp"
-                    android:padding="10dp"
-                    android:src="@drawable/policeman"
+                    android:padding="15dp"
+                    android:src="@drawable/policeman1"
                     android:background="@drawable/circleblue"/>
 
                 <View
@@ -145,8 +145,8 @@
                     android:layout_margin="15dp"
                     android:layout_width="125dp"
                     android:layout_height="125dp"
-                    android:padding="15dp"
-                    android:src="@drawable/policeman3"
+                    android:padding="10dp"
+                    android:src="@drawable/policeman"
                     android:background="@drawable/circleblue"/>
 
                 <View
@@ -194,8 +194,8 @@
                     android:layout_margin="15dp"
                     android:layout_width="125dp"
                     android:layout_height="125dp"
-                    android:padding="15dp"
-                    android:src="@drawable/wanted1"
+                    android:padding="20dp"
+                    android:src="@drawable/wanted"
                     android:background="@drawable/circleblue"/>
 
                 <View

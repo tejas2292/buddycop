@@ -53,6 +53,8 @@ public class AdminEnterWanted extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Admin Enter Wanted Data");
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         loadingDialog = new LoadingDialog(AdminEnterWanted.this);
         spinner = findViewById(R.id.offencedesc);
@@ -95,18 +97,15 @@ public class AdminEnterWanted extends AppCompatActivity {
         name = mName.getText().toString();
         place = mPlace.getText().toString();
 
-        if(name.equals("")|| place.equals("")|| crime.equals("Select Crime Description")){
-            if(name.equals("")){
+        if (name.equals("") || place.equals("") || crime.equals("Select Crime Description")) {
+            if (name.equals("")) {
                 mName.setError("Name is required");
-            }
-            else if(place.equals("")){
+            } else if (place.equals("")) {
                 mPlace.setError("Place is required");
-            }
-            else if(crime.equals("Select Crime Description")){
+            } else if (crime.equals("Select Crime Description")) {
                 Toast.makeText(AdminEnterWanted.this, "Select Description", Toast.LENGTH_SHORT).show();
             }
-        }
-        else {
+        } else {
             Intent galaryIntent = new Intent(Intent.ACTION_PICK,
                     android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             startActivityForResult(galaryIntent, GalaryPick);
@@ -159,7 +158,7 @@ public class AdminEnterWanted extends AppCompatActivity {
                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
-                                        if(task.isSuccessful()) {
+                                        if (task.isSuccessful()) {
                                             Toast.makeText(AdminEnterWanted.this, "Data saved in database", Toast.LENGTH_SHORT).show();
                                             loadingDialog.dismissDialog();
                                             startActivity(new Intent(AdminEnterWanted.this, AdminHomeScreen.class));
@@ -178,5 +177,17 @@ public class AdminEnterWanted extends AppCompatActivity {
 
 
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(AdminEnterWanted.this, AdminHomeScreen.class));
+        finish();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

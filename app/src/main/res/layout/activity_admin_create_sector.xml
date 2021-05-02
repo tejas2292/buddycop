@@ -65,6 +65,7 @@
 
         <Button
             android:id="@+id/addSectorBtn"
+            android:background="@drawable/btn_bg"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_alignParentRight="true"
@@ -85,6 +86,9 @@
         android:background="#000" />
 
     <ListView
+        android:background="@drawable/edit_text_background"
+        android:layout_margin="10dp"
+        android:padding="5dp"
         android:id="@+id/listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

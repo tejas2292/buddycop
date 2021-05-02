@@ -40,6 +40,8 @@ public class PoliceWantedDB extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Wanted Database");
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         reference = FirebaseDatabase.getInstance().getReference("wanted");
 
@@ -79,5 +81,12 @@ public class PoliceWantedDB extends AppCompatActivity {
     public void onBackPressed() {
         startActivity(new Intent(PoliceWantedDB.this, PoliceHomeScreen.class));
         finish();
+    }
+
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

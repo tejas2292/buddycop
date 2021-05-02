@@ -37,9 +37,6 @@ public class PoliceLogin extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         reference = FirebaseDatabase.getInstance().getReference("credentials").child("police");
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Police Login");
-        setSupportActionBar(toolbar);
 
         loadingDialog = new LoadingDialog(PoliceLogin.this);
 

@@ -32,14 +32,17 @@ public class AdminHomeScreen extends AppCompatActivity {
 
     public void onCreateSector(View view) {
         startActivity(new Intent(AdminHomeScreen.this, AdminCreateSector.class));
+        finish();
     }
 
     public void onAllocateOfficers(View view) {
         startActivity(new Intent(AdminHomeScreen.this, AdminOfficerAllocate.class));
+        finish();
     }
 
     public void onAllocateHeadOfficer(View view) {
         startActivity(new Intent(AdminHomeScreen.this, AdminHeadAllocate.class));
+        finish();
     }
 
 

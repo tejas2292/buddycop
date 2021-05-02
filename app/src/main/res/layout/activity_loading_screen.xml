@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".LoadingScreen"
     android:orientation="vertical"
     android:background="#fff">
 
@@ -57,20 +57,16 @@
     </RelativeLayout>
 
     <RelativeLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:layout_marginTop="0dp"
-            android:layout_marginBottom="50dp"
+        <ImageView
             android:id="@+id/logo_image"
-            android:layout_width="300dp"
-            app:lottie_url="https://assets5.lottiefiles.com/packages/lf20_iqzpu6zz.json"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
+            android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:layout_centerHorizontal="true"
-            tools:ignore="MissingClass" />
+            android:padding="30dp"
+            android:src="@drawable/applogo" />
 
     </RelativeLayout>
 

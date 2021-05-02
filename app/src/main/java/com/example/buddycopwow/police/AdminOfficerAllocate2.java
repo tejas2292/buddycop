@@ -48,6 +48,8 @@ public class AdminOfficerAllocate2 extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Admin Allocate Officer To Sector");
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         reference = FirebaseDatabase.getInstance().getReference("sector");
         reference2 = FirebaseDatabase.getInstance().getReference("duty");
@@ -141,4 +143,15 @@ public class AdminOfficerAllocate2 extends AppCompatActivity {
         recyclerView.setAdapter(adapterHistory);
     }
 
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(AdminOfficerAllocate2.this, AdminOfficerAllocate.class));
+        finish();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 }

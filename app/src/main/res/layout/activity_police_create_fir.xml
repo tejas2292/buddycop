@@ -16,7 +16,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:orientation="vertical">
+        android:background="@drawable/edit_text_background"
+        android:orientation="vertical"
+        android:padding="15dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -33,6 +35,8 @@
             android:hint="Enter Fir No"
             android:inputType="textPersonName"
             android:padding="10dp"
+            android:textSize="18sp"
+            android:theme="@style/MyEditTextTheme"
             app:layout_constraintEnd_toEndOf="parent" />
 
 
@@ -51,6 +55,8 @@
             android:hint="Victim/Reporter Name"
             android:inputType="textPersonName"
             android:padding="10dp"
+            android:theme="@style/MyEditTextTheme"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent" />
 
 
@@ -65,14 +71,20 @@
         <com.toptoche.searchablespinnerlibrary.SearchableSpinner
             android:id="@+id/offencedesc"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp" />
+            android:layout_height="40dp"
+            android:textSize="18sp" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="#8E8C8C" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:text="Place:"
             android:textColor="@color/colorAccent"
             android:textSize="18dp"
@@ -84,7 +96,9 @@
             android:layout_height="wrap_content"
             android:hint="Place of offence"
             android:inputType="textCapWords"
-            android:padding="10dp" />
+            android:padding="10dp"
+            android:theme="@style/MyEditTextTheme"
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -99,8 +113,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Latitude"
+            android:theme="@style/MyEditTextTheme"
             android:inputType="numberDecimal"
-            android:padding="10dp" />
+            android:padding="10dp"
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -115,8 +131,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Longitude"
+            android:theme="@style/MyEditTextTheme"
             android:inputType="numberDecimal"
-            android:padding="10dp" />
+            android:padding="10dp"
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -130,12 +148,17 @@
             android:id="@+id/witness"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="witnesses"
-            android:inputType="textMultiLine"
-            android:padding="10dp" />
+            android:hint="Witnesses"
+            android:inputType="textCapWords"
+            android:padding="10dp"
+            android:theme="@style/MyEditTextTheme"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/firsubmit"
+            android:background="@drawable/btn_bg"
+            android:textColor="#FFF"
+            android:textSize="18sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"

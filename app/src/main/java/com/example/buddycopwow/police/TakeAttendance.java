@@ -72,6 +72,8 @@ public class TakeAttendance extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Take Attendance");
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         reference = FirebaseDatabase.getInstance().getReference("credentials").child("police");
         reference2 = FirebaseDatabase.getInstance().getReference("duty");
@@ -261,6 +263,13 @@ public class TakeAttendance extends AppCompatActivity {
     public void onBackPressed() {
         startActivity(new Intent(TakeAttendance.this, PoliceHomeScreen.class));
         finish();
+    }
+
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
 }

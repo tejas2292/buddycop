@@ -47,6 +47,8 @@ public class PoliceRegestration extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Police Registration");
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         loadingDialog = new LoadingDialog(PoliceRegestration.this);
 
@@ -176,5 +178,11 @@ public class PoliceRegestration extends AppCompatActivity {
         startActivity(new Intent(PoliceRegestration.this, PoliceLogin.class));
         finish();
         //here exit app alert close............................................
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

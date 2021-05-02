@@ -1,5 +1,6 @@
 package com.example.buddycopwow.police;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -44,6 +45,8 @@ public class AdminCreateSector extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Admin Create Sector");
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         mSectorName = findViewById(R.id.enterSectorName);
         mListView = findViewById(R.id.listview);
@@ -130,5 +133,17 @@ public class AdminCreateSector extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(AdminCreateSector.this, AdminHomeScreen.class));
+        finish();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

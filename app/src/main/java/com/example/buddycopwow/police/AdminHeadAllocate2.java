@@ -47,6 +47,8 @@ public class AdminHeadAllocate2 extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Admin Head Allocate To Sector");
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         reference = FirebaseDatabase.getInstance().getReference("sector");
         reference2 = FirebaseDatabase.getInstance().getReference("duty");
@@ -156,4 +158,15 @@ public class AdminHeadAllocate2 extends AppCompatActivity {
         recyclerView.setAdapter(adapterHistory);
     }
 
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(AdminHeadAllocate2.this, AdminHeadAllocate.class));
+        finish();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 }

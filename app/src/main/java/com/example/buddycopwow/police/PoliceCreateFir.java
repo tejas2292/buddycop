@@ -38,6 +38,8 @@ public class PoliceCreateFir extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("File Fir");
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         mFirNo = findViewById(R.id.firno);
         mVictimName = findViewById(R.id.victim_name);
@@ -116,5 +118,12 @@ public class PoliceCreateFir extends AppCompatActivity {
         startActivity(new Intent(PoliceCreateFir.this, PoliceHomeScreen.class));
         finish();
         //here exit app alert close............................................
+    }
+
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }
