@@ -92,4 +92,9 @@ public class AdminHomeScreen extends AppCompatActivity {
         startActivity(new Intent(AdminHomeScreen.this, AdminEnterWanted.class));
         finish();
     }
+
+    public void onReports(View view) {
+        startActivity(new Intent(AdminHomeScreen.this, AdminReport.class));
+        finish();
+    }
 }

@@ -49,10 +49,10 @@ import java.util.List;
 import java.util.Locale;
 
 public class PoliceHomeScreen extends AppCompatActivity {
-    public DatabaseReference reference, referenceMain;
+    public DatabaseReference reference, referenceCred;
     DatabaseReference reference2, reference3;
     FirebaseAuth fAuth;
-    String uid;
+    String uid, selfName;
     String role;
     String sectorName;
     String latitude = "-";
@@ -78,6 +78,7 @@ public class PoliceHomeScreen extends AppCompatActivity {
         reference = FirebaseDatabase.getInstance().getReference("duty");
         reference2 = FirebaseDatabase.getInstance().getReference("sector");
         reference3 = FirebaseDatabase.getInstance().getReference("attendance");
+        referenceCred = FirebaseDatabase.getInstance().getReference("credentials").child("police");
 
 
         uid = fAuth.getCurrentUser().getUid();
@@ -131,6 +132,22 @@ public class PoliceHomeScreen extends AppCompatActivity {
             }
         });
 
+        referenceCred.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    String t1=  snapshot.child("firstName").getValue().toString();
+                    String t2 = snapshot.child("lastName").getValue().toString();
+
+                    selfName = t1 +" "+ t2;
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
 
@@ -182,6 +199,7 @@ public class PoliceHomeScreen extends AppCompatActivity {
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if (snapshot.exists()) {
                         String tempStatus = snapshot.child("status").getValue().toString();
+
 
                         if (tempStatus.equals("present")) {
                             Toast.makeText(PoliceHomeScreen.this, "Attendance is already done", Toast.LENGTH_SHORT).show();
@@ -246,8 +264,8 @@ public class PoliceHomeScreen extends AppCompatActivity {
             Long tsLong = System.currentTimeMillis() / 1000;
             String ts = tsLong.toString();
 
-            final UploadAttendance u = new UploadAttendance("self", uid, sectorName, "-",
-                    date, ts, latitude, longitude, "present");
+            final UploadAttendance u = new UploadAttendance("self", selfName, sectorName, "-",
+                    date, ts, latitude, longitude, "present", uid);
 
             reference3.child(date).child(uid).setValue(u).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override

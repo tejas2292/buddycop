@@ -12,7 +12,9 @@
         android:roundIcon="@drawable/applogo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Buddycopwow">
-        <activity android:name=".police.AdminEnterWanted"></activity>
+        <activity android:name=".police.AdminReport2"></activity>
+        <activity android:name=".police.AdminReport" />
+        <activity android:name=".police.AdminEnterWanted" />
         <activity android:name=".police.PoliceWantedDB" />
         <activity android:name=".police.PoliceCreateFir" />
 
@@ -41,7 +43,6 @@
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
-
     </application>
 
 </manifest>

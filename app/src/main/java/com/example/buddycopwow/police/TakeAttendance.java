@@ -58,7 +58,7 @@ public class TakeAttendance extends AppCompatActivity {
     FirebaseRecyclerOptions<PoliceRegestrationUpload> options;
     FirebaseRecyclerAdapter<PoliceRegestrationUpload, FireViewHoldOfficerList> adapterHistory;
     EditText searchOfficer;
-    String sectorName, sectorHeadUid, latitude = "-", longitude = "-";
+    String sectorName, sectorHeadUid, latitude = "-", longitude = "-", sectorHeadName, takenOf;
     String tempFirstName, tempLastName, tempDesignation;
     FusedLocationProviderClient fusedLocationProviderClient;
     LatLng latLng;
@@ -86,7 +86,6 @@ public class TakeAttendance extends AppCompatActivity {
 
         sectorName = getIntent().getStringExtra("sectorName");
         sectorHeadUid = getIntent().getStringExtra("sectorHeadUid");
-
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
         if(ContextCompat.checkSelfPermission(TakeAttendance.this, Manifest.permission.ACCESS_FINE_LOCATION)
@@ -99,6 +98,22 @@ public class TakeAttendance extends AppCompatActivity {
             getCurrentLoacation();
         }
 
+        reference.child(sectorHeadUid).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                   String t1=  snapshot.child("firstName").getValue().toString();
+                   String t2 = snapshot.child("lastName").getValue().toString();
+
+                   sectorHeadName = t1 +" "+ t2;
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         LoadData(sectorName);
 
     }
@@ -153,8 +168,10 @@ public class TakeAttendance extends AppCompatActivity {
                                                                 Long tsLong = System.currentTimeMillis() / 1000;
                                                                 String ts = tsLong.toString();
 
-                                                                final UploadAttendance u = new UploadAttendance(sectorHeadUid, model.getUid(), sectorName, sectorHeadUid,
-                                                                        date, ts, latitude, longitude, "present");
+
+
+                                                                final UploadAttendance u = new UploadAttendance(sectorHeadName, holder.Name.getText().toString(), sectorName, sectorHeadName,
+                                                                        date, ts, latitude, longitude, "present",model.getUid());
 
                                                                 reference3.child(date).child(model.getUid()).setValue(u).addOnSuccessListener(new OnSuccessListener<Void>() {
                                                                     @Override
@@ -176,8 +193,8 @@ public class TakeAttendance extends AppCompatActivity {
                                                                 Long tsLong1 = System.currentTimeMillis() / 1000;
                                                                 String ts1 = tsLong1.toString();
 
-                                                                final UploadAttendance u1 = new UploadAttendance(sectorHeadUid, model.getUid(), sectorName, sectorHeadUid,
-                                                                        date1, ts1, latitude, longitude, "absent");
+                                                                final UploadAttendance u1 = new UploadAttendance(sectorHeadName, holder.Name.getText().toString(), sectorName, sectorHeadName,
+                                                                        date1, ts1, latitude, longitude, "absent", model.getUid());
 
                                                                 reference3.child(date1).child(model.getUid()).setValue(u1).addOnSuccessListener(new OnSuccessListener<Void>() {
                                                                     @Override

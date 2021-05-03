@@ -1,13 +1,14 @@
 package com.example.buddycopwow.Uploads;
 
 public class UploadAttendance {
-    String takenBy, takenOf, sectorName, sectorHeadName, date, time, lat, lan, status;
+    String takenBy, takenOf, sectorName, sectorHeadName, date, time, lat, lan, status, takenOfUid;
 
     public UploadAttendance() {
     }
 
     public UploadAttendance(String takenBy, String takenOf, String sectorName,
-                            String sectorHeadName, String date, String time, String lat, String lan, String status) {
+                            String sectorHeadName, String date, String time, String lat,
+                            String lan, String status, String takenOfUid) {
         this.takenBy = takenBy;
         this.takenOf = takenOf;
         this.sectorName = sectorName;
@@ -17,6 +18,7 @@ public class UploadAttendance {
         this.lat = lat;
         this.lan = lan;
         this.status = status;
+        this.takenOfUid = takenOfUid;
     }
 
     public String getTakenBy() {
@@ -89,5 +91,13 @@ public class UploadAttendance {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getTakenOfUid() {
+        return takenOfUid;
+    }
+
+    public void setTakenOfUid(String takenOfUid) {
+        this.takenOfUid = takenOfUid;
     }
 }
